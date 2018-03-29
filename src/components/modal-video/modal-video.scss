@@ -1,0 +1,91 @@
+.modal-video {
+    position: relative;
+    &__video {
+        display: none;
+        width: calc(90% - 80px);
+        height: calc(90% - 80px);
+        background: white;
+        position: fixed;
+        margin: 0 auto;
+        left: 0;
+        border-radius: rem(5);
+        right: 0;
+        padding: rem(40);
+        bottom: 0;
+        top: rem(20);
+        &--visible {
+            z-index: 1;
+            display: block;
+            animation: example .5s;
+            // &::before {
+            //     content: '';
+            //     display: block;
+            //     position: absolute;
+            //     height: 100%;
+            //     width: 100%;
+            //     background: black
+            // }
+        }
+    }
+    video {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    &__close {
+        text-decoration: none;
+        background-color: $id5-purple;
+        color: white;
+        font-weight: 600;
+        line-height: rem(28);
+        font-size: rem(29);
+        display: block;
+        text-align: center;
+        border-radius: 100%;
+        height: rem(50);
+        width: rem(50);
+        right: rem(20);
+        top: rem(20);
+        position: absolute;
+        z-index: 2;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__trigger {
+        text-decoration: none;
+        background-color: $id5-purple;
+        color: white;
+        font-weight: 600;
+        line-height: rem(28);
+        text-align: center;
+        height: rem(50);
+        &:hover {
+            text-decoration: none;
+        }
+        &--hidden {
+            display: none
+        }
+    }
+}
+
+@keyframes example {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+body {
+    &.modal-video__overlay::before {
+        background: black;
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 0;
+    }
+}
